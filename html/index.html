@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link href="https://cdn.jsdelivr.net/npm/quasar@2.1.0/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/quasar@2.1.0/dist/quasar.umd.prod.js" defer></script>
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+        <div id="brand">
+            <img v-if="showBrand" class="brand-logo" src="./brand-logo.svg"></img> <!-- change this for your own brand logo -->
+        </div>
+        <div id="checklist">
+        <img class="checklist-logo" src="./checklist-logo.svg"></img> <!-- change this for your own checklist logo -->
+        <div class="q-pa-md text-custom">
+        <h1>Starter Checklist: You can change everything in provided HTML file. Thanks for using my script ❤️</h1>
+        <q-field borderless dense v-model="selectedCheck" :rules="[ val => val.length >= 10 || 'You must checkmark all boxes!']">
+        <div class="text-custom" template v-slot:control>
+            <q-checkbox dark label='Use "ESC > Settings > Voice Chat" to set up audio / voice settings.' v-model="selectedCheck" color="light-green-14" val="1"></q-checkbox>
+            <q-checkbox dark label='Set up keybinds in "ESC > Settings > Key Bindings > FiveM (Scroll down!)' v-model="selectedCheck" color="light-green-14" val="2"></q-checkbox>
+            <q-checkbox dark label='Set up graphics and display options in "ESC > Settings' v-model="selectedCheck" color="light-green-14" val="3"></q-checkbox>
+            <q-checkbox dark label='Set up your character clothing & face options in the room.' v-model="selectedCheck" color="light-green-14" val="4"></q-checkbox>
+            <q-checkbox dark label='Save some outfits presets with /outfits at the wardrobe' v-model="selectedCheck" color="light-green-14" val="5"></q-checkbox>
+            <q-checkbox dark label='Take note of your character state id (open phone, top left app "Details")' v-model="selectedCheck" color="light-green-14" val="6"></q-checkbox>
+            <q-checkbox dark label='Customize your HUD settings with /hud' v-model="selectedCheck" color="light-green-14" val="7"></q-checkbox>
+            <q-checkbox dark label='Familiarize yourself with keybinds and what they do!' v-model="selectedCheck" color="light-green-14" val="8"></q-checkbox>
+            <q-checkbox dark label='Attempt to leave this menu without understanding will result in a ban!' v-model="selectedCheck" color="light-green-14" val="9" ></q-checkbox>
+             <!-- DO NOT COPY AND PASTE THIS BOTTOM CHECKBOX (It's triggered to enable button after they've all been checked ) -->
+            <q-checkbox dark label='Log off, wait for 3.0 (FeelsGoodMan)'v-model="selectedCheck" color="light-green-14" val="10" @click="disabled = !disabled"></q-checkbox>
+        </template>
+            <div class="row justify-center">
+                <q-btn label="I Understand" :loading="loading[0]" text-color="black" color="custom" :disabled="disabled" class="closeCheckList"></q-btn>
+        </q-field>
+    </div>
+</body>
+</html>
