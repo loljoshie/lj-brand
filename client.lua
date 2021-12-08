@@ -1,6 +1,12 @@
 local showCheck = false
 local showBrand = false
 
+RegisterNUICallback('showBrand', function()
+    Wait(50)
+    TriggerEvent("lj-brand:client:Logo")
+end) 
+
+
 local function updateBrand(data)
     SendNUIMessage({
     action = 'brand',
@@ -19,7 +25,8 @@ end)
 
 RegisterNetEvent("lj-brand:client:Logo", function()
     showBrand = not showBrand
-    if showBrand == true and Config.showBrand == true then
+    TriggerEvent("hud:client:checklistSounds")
+    if showBrand == true then
         showBrand = true
         updateBrand({
             showBrand,
@@ -30,6 +37,7 @@ RegisterNetEvent("lj-brand:client:Logo", function()
         })
         showBrand = false
     end
+    TriggerEvent("hud:client:checklistSounds")
 end)
 
 AddEventHandler('lj-brand:client:open', function()
