@@ -13,6 +13,9 @@ Runs at ~ 0.00 ms
 * [qbcore framework](https://github.com/qbcore-framework)
 * [interact-sound](https://github.com/qbcore-framework/interact-sound) (if you want sound effects)
 
+# Recommended
+* [lj-brand](https://github.com/loljoshie/lj-menu) **this is only compatiable with lj-hud**
+
 ## Event: All you need is this event. It can go pretty much anywhere.
 ```lua
 TriggerEvent('lj-brand:client:open')
